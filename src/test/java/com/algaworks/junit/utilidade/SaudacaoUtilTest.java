@@ -1,6 +1,7 @@
 package com.algaworks.junit.utilidade;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.function.Executable;
@@ -9,9 +10,11 @@ import static com.algaworks.junit.utilidade.SaudacaoUtil.saudar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Testes Utilitários de Saudaçao")
 class SaudacaoUtilTest {
 
     @Test
+    @DisplayName("Deve saudar com Bom dia!")
     public void saudarComBomDia() {
         //Arrange
         int horaValida = 9;
