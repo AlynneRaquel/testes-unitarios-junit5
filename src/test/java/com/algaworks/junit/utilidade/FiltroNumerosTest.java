@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FiltroNumerosTest {
 
     @Test
-    public void deve_Retornar_Numeros_Pares() {
+    public void Dado_uma_lista_de_numeros_Quando_filtrar_por_pares_Entao_deve_retornar_penas_numeros_pares() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
         List<Integer> numerosParesEsperados = Arrays.asList(2,4);
         List<Integer> resultadoFiltro = FiltroNumeros.numerosPares(list);
@@ -26,7 +26,11 @@ class FiltroNumerosTest {
     }
 
     @Test
-    public void deveRetornarNumerosImpares() {
+    public void Dado_uma_lista_de_numeros_Quando_filtrar_por_pares_Entao_deve_retornar_penas_impares_pares() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> numerosImparesEsperados = Arrays.asList(1,3,5);
+        List<Integer> resultadoFiltro = FiltroNumeros.numerosImpares(list);
+        Assertions.assertIterableEquals(numerosImparesEsperados, resultadoFiltro);
     }
 
     @Test

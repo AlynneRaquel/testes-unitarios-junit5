@@ -1,8 +1,6 @@
 package com.algaworks.junit.utilidade;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import org.junit.jupiter.api.function.Executable;
 
@@ -10,12 +8,11 @@ import static com.algaworks.junit.utilidade.SaudacaoUtil.saudar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Testes Utilitários de Saudaçao")
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class SaudacaoUtilTest {
 
     @Test
-    @DisplayName("Deve saudar com Bom dia!")
-    public void saudarComBomDia() {
+    public void Dado_uma_horario_matutino_Quando_saudar_Entao_deve_retornar_bom_dia() {
         //Arrange
         int horaValida = 9;
 
@@ -27,29 +24,15 @@ class SaudacaoUtilTest {
     }
 
     @Test
-    public void saudarComBomDiaAPartir5h() {
-        int horaValida = 5;
-        String saudacao = saudar(horaValida);
-        assertEquals("Bom dia", saudacao);
-    }
-
-    @Test
-    public void saudarComBoaTarde() {
+    public void Dado_uma_horario_vespertino_Quando_saudar_Entao_deve_retornar_boa_tarde() {
         int horaValida = 15;
         String saudacao = saudar(horaValida);
         assertEquals("Boa tarde", saudacao);
     }
 
     @Test
-    public void saudarComBoaNoite() {
+    public void Dado_uma_horario_noturno_Quando_saudar_Entao_deve_retornar_boa_noite() {
         int horaValida = 22;
-        String saudacao = saudar(horaValida);
-        assertEquals("Boa noite", saudacao);
-    }
-
-    @Test
-    public void saudarComBoaNoiteAs4h() {
-        int horaValida = 4;
         String saudacao = saudar(horaValida);
         assertEquals("Boa noite", saudacao);
     }
@@ -61,7 +44,7 @@ class SaudacaoUtilTest {
     }
 
     @Test
-    public void deveLancarException(){
+    public void Dado_uma_hora_invalida_Quando_saudar_Entao_deve_lancar_exception(){
         int horaInvalida = -10;
         Executable chamadaInvalidaDeMetodo = () -> saudar(horaInvalida);
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,chamadaInvalidaDeMetodo);
@@ -69,7 +52,7 @@ class SaudacaoUtilTest {
     }
 
     @Test
-    public void naoDeveLancarException(){
+    public void  Dado_uma_hora_valida_Quando_saudar_Entao_deve_lancar_exception() {
         int horaValida = 0;
         Executable chamadaValidaDeMetodo = () -> saudar(horaValida);
         assertDoesNotThrow(chamadaValidaDeMetodo);
