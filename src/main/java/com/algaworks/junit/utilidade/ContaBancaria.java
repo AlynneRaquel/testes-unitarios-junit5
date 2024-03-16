@@ -4,9 +4,14 @@ import java.math.BigDecimal;
 
 public class ContaBancaria {
 
+    private BigDecimal saldo;
+
     public ContaBancaria(BigDecimal saldo) {
-        //TODO 1 - validar saldo: não pode ser nulo, caso seja, deve lançar uma IllegalArgumentException
-        //TODO 2 - pode ser zero ou negativo
+        if (saldo == null){
+            throw new IllegalArgumentException("Valor inválido");
+        }
+
+        this.saldo = saldo;
     }
 
     public void saque(BigDecimal valor) {
