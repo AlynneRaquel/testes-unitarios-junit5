@@ -15,18 +15,22 @@ public class ContaBancaria {
     }
 
     public void saque(BigDecimal valor) {
-        //TODO 1 - validar valor: não pode ser nulo, zero ou menor que zero, caso seja, deve lançar uma IllegalArgumentException
-        //TODO 2 - Deve subtrair o valor do saldo
-        //TODO 3 - Se o saldo for insuficiente deve lançar uma RuntimeException
+        if (valor == null || valor.compareTo(BigDecimal.ZERO) <= 0  ) {
+            throw new IllegalArgumentException("Valor inválido ou nulo");
+        }
+
+        this.saldo =  saldo().subtract(valor);
     }
 
     public void deposito(BigDecimal valor) {
-        //TODO 1 - validar valor: não pode ser nulo, zero ou menor que zero, caso seja, deve lançar uma IllegalArgumentException
-        //TODO 2 - Deve adicionar o valor ao saldo
+        if (valor == null || valor.compareTo(BigDecimal.ZERO) <= 0  ) {
+            throw new IllegalArgumentException("Valor inválido ou nulo");
+        }
+
+        this.saldo =  saldo().add(valor);
     }
 
     public BigDecimal saldo() {
-        //TODO 1 - retornar saldo
-        return null;
+        return saldo;
     }
 }
